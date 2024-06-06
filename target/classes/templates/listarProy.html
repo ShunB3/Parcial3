@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout ::head(~{title}, ~{links})">
+</head>
+
+  <body>
+
+	<nav class="navbar navbar-expand-lg container" style="margin-bottom: 30px;">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Gestor Proyectos</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+	        </li>
+	        
+	        <li class="nav-item">
+	          <a class="nav-link text-danger" href="/">Cerrar Sesión</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	
+	<div class="p-5">
+		<table class="table table-hover"> 
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Ante Proyecto (Nombre)</th>
+                    <th>Descripción</th>
+					<th>Director Asignado</th>
+                    <th>Estado del director</th>
+					<th>Evaluador Asignado</th>
+					<th>Estado Evaluador</th>
+					<th>Estado Final</th>
+					<th>Estudiante</th>
+					<th>Calificación</th>
+					<th>Acciones</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <tr th:each="objeto : ${listarProy}">
+                    <td th:text="${objeto.id}"></td>
+                    <td th:text="${objeto.anteproyecto}"> </td>
+                    <td th:text="${objeto.descripcion}"> </td>
+					<td th:if="${objeto.director != null}" th:text="${objeto.director.nombre}"> </td>
+					<td th:unless="${objeto.director != null}">Sin Asignar</td>
+                    <td th:text="${objeto.estadoDirector}"> </td>
+				<!--	<td th:text="${objeto.radicadoAnteproyecto}"> </td>-->
+					<td th:if="${objeto.evaluador != null}" th:text="${objeto.evaluador.nombre}"> </td>
+					<td th:unless="${objeto.evaluador != null}">Sin Asignar</td>
+					<td th:text="${objeto.estadoEvaluador}"> </td>
+					<td th:text="${objeto.estadoFinal}"> </td>
+				<!--	<td th:text="${objeto.radicadoComite}"> </td>-->
+					<td th:if="${objeto.estudiante != null}" th:text="${objeto.estudiante.nombre} + ${objeto.estudiante.apellido}"> </td>
+					<td th:unless="${objeto.estudiante != null}">Sin Asignar</td>
+					<td th:text="${objeto.calificacion}"> </td>
+					<td class="d-flex">
+						<form class="mx-1" th:action="@{'/editarProy'+ '/' + ${objeto.id}}" method="get"><button type='submit' class='btn btn-warning m-2'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+						  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+						  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+						</svg></button></form>
+	                    <form class="mx-1" th:action="@{'/eliminarProy'+ '/' + ${objeto.id}}" method="get"><button type='submit' class='btn btn-danger m-2'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+						  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+						</svg></button></form>
+					</td>
+                </tr>
+             </tbody>
+        </table>
+	</div>
+	
+	<div class="container">
+		<div class="card">
+		  <div class="card-body">
+		    <h5 class="card-title">Crea una idea de proyecto</h5>
+		    <a href="/crearProy" class="btn btn-success">Crear Idea Proyecto</a>
+		  </div>
+		</div>
+	</div>
+	
+
+  </body>
+</html>

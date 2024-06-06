@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout ::head(~{title}, ~{links})">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+ 
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg container">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Gestor Proyectos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                 
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="/">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+        <section class="d-flex justify-content-center">
+            <aside class="welcome-message fw-bolder">
+				<h1 style="margin-top: 80px; padding-right: 60px; color: #282634;">Bienvenido a tu Sistema.</h1>
+				<br>
+			
+            </aside>
+        </section>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-coordinadores">
+                    <div class="card-body">
+                        <h5 class="card-title">Coordinadores</h5>
+                        <p class="card-text">Coordinadores Registrados.</p>
+                        <a href="/listar-ccor" target="_blank" class="btn btn-custom btn-coordinadores">Mirar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-directores">
+                    <div class="card-body">
+                        <h5 class="card-title">Directores</h5>
+                        <p class="card-text">Directores 						Registrados.</p>
+                        <a href="/listar-dir" target="_blank" class="btn btn-custom btn-directores">Mirar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-evaluadores">
+                    <div class="card-body">
+                        <h5 class="card-title">Evaluadores</h5>
+                        <p class="card-text">Evaluadores 						Registrados.</p>
+                        <a href="/listar-eva" target="_blank" class="btn btn-custom btn-evaluadores">						Mirar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-estudiantes">
+                    <div class="card-body">
+                        <h5 class="card-title">Estudiantes</h5>
+                        <p class="card-text">Estudiantes						Registrados.</p>
+                        <a href="/listar-est" target="_blank" class="btn btn-custom btn-estudiantes">						Mirar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+
+</html>

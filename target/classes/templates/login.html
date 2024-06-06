@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout ::head(~{title}, ~{links})">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .custom-form {
+            background-color: rgb(255, 0, 0);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgb(255, 0, 0);
+        }
+
+        .custom-button {
+            background-color: #3498db;
+            color: rgb(255, 0, 0);
+            transition: background-color 0.3s ease;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .custom-button:hover {
+            background-color: #2980b9;
+        }
+
+        .form-label {
+            color: #495057;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="vh-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 text-black mt-5">
+
+                    <div class="px-5 ms-xl-4">
+                        <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+                        <span class="h1 fw-bold mb-0">Sistema Gestor De Proyectos</span>
+                    </div>
+
+                    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+                        <form style="width: 23rem;" class="custom-form" th:action="@{/loguearse}" th:object="${usuario}" method="POST">
+
+                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia Seccion</h3>
+
+                            <div data-mdb-input-init class="form-outline mb-4">
+								<label class="form-label" for="form2Example18">Usuario</label>
+                                <input type="text" id="form2Example18" class="form-control form-control-lg" name="user" th:field="*{usuario}" />
+                                
+                            </div>
+
+                            <div data-mdb-input-init class="form-outline mb-4">
+								<label class="form-label" for="form2Example28">Contraseña</label>
+                                <input type="password" id="form2Example28" class="form-control form-control-lg" name="pass" th:field="*{contra}" />
+                               
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn custom-button btn-lg btn-block" type="submit">Iniciar Sesión</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="https://hacemostrabajosdegrado.com/images/bg-trabajos-de-grado.png" alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FOOTER
+    <footer th:replace="layout/layout :: pie-de-pagina"></footer>
+
+    <div th:replace="layout/layout :: script"></div>-->
+</body>
+
+</html>

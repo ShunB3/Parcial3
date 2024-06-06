@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout ::head(~{title}, ~{links})">
+</head>
+
+  <body>
+
+	<nav class="navbar navbar-expand-lg container" style="margin-bottom: 30px;">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Gestor Proyectos</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+	        </li>
+	      
+	        <li class="nav-item">
+	          <a class="nav-link disabled text-danger" href="/">Cerrar Sesión</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	
+	<form class="container" th:object="${dir}" th:action="@{/guardarDir}" method="post">
+		<h1>Ingresa Tus Datos</h1>
+		  <div class="mb-3">
+		    <label for="exampleInputEmail1" class="form-label">Cedula</label>
+		    <input type="number" class="form-control" id="exampleInputEmail1" th:field="*{cedula}">
+		  </div>
+		  <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Nombre</label>
+		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{nombre}">
+		  </div>
+		  <div class="mb-3">
+  		    <label for="exampleInputPassword1" class="form-label">Apellido</label>
+  		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{apellido}">
+  		  </div>
+		  <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Contra</label>
+		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{contra}">
+		  </div>
+		  <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Telefono</label>
+		    <input type="number" class="form-control" id="exampleInputPassword1"th:field="*{telefono}">
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">Enviar</button>
+	</form>
+	
+
+	
+  </body>
+</html>
