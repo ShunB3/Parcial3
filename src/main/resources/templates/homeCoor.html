@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout ::head(~{title}, ~{links})">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+
+        .nav-link.text-danger {
+            color: #ff4e44 !important;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        h1, .fw-bolder p {
+            text-align: center;
+            color: #282634;
+        }
+
+        .card-custom {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .card-custom .card-body {
+            padding: 20px;
+        }
+
+        .card-custom .card-title {
+            font-size: 24px;
+            color: #343a40;
+        }
+
+        .card-custom .card-text {
+            color: #6c757d;
+        }
+
+        .card-custom .btn {
+            background-color: #ff4e44;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-custom .btn:hover {
+            background-color: #e03c3a;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg container" style="margin-bottom: 30px;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gestor Proyectos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="/">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container m-auto mt-5" style="margin-bottom: 20px;">
+    <section class="container d-flex">
+        <aside class="fw-bolder" style="font-size: 80px; letter-spacing: .5px;">
+            <center>
+                <p style="padding-right: 60px; color: #282634;">Coordinador.</p>
+            </center>
+			<br>
+        </aside>
+        <aside class="container">
+        </aside>
+    </section>
+    
+    <div class="card card-custom d-flex">
+      <div class="card-body">
+        <h5 class="card-title">Proyectos</h5>
+        <p class="card-text">Crea y asigna proyectos a los evaluadores y directores.</p>
+        <a href="/listar-proy" target="_blank" class="btn fw-bolder">Mirar</a>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout ::head(~{title}, ~{links})">
+</head>
+
+  <body>
+
+	<nav class="navbar navbar-expand-lg container" style="margin-bottom: 30px;">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Gestor Proyectos</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+	        </li>
+	        
+	        <li class="nav-item">
+	          <a class="nav-link disabled text-danger" href="/">Cerrar Sesión</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	
+	<form class="container" th:object="${proy}" th:action="@{/guardarProy}" method="post">
+		<h1>Ingresa Tus Datos</h1>
+		
+			<input type="hidden" class="form-control" id="exampleInputEmail1" th:field="*{id}">
+		  <div class="mb-3">
+		    <label for="exampleInputEmail1" class="form-label">Nombre AnteProyecto</label>
+		    <input type="text" class="form-control" id="exampleInputEmail1" th:field="*{anteproyecto}">
+		  </div>
+		  <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Descripción</label>
+		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{descripcion}">
+		  </div>
+		  <div class="mb-3">
+  		    <label for="exampleInputPassword1" class="form-label">Estado Director</label>
+  		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{estadoDirector}">
+  		  </div>
+		 <!-- <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Radicado AnteProyecto</label>
+		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{radicadoAnteproyecto}">
+		  </div>-->
+		  <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Estado Evaluador</label>
+		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{estadoEvaluador}">
+		  </div>
+		  <div class="mb-3">
+  		    <label for="exampleInputPassword1" class="form-label">Estado Final</label>
+  		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{estadoFinal}" >
+  		  </div>
+		 <!-- <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Radicado Comite</label>
+		    <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{radicadoComite}">
+		  </div>-->
+		  <div class="mb-3">
+  		    <label for="exampleInputPassword1" class="form-label">Calificación</label>
+	    	<input type="number" class="form-control" id="exampleInputPassword1" th:field="*{calificacion}">
+  		  </div>
+		  
+		  <div class="mb-4 form-floating">
+			<select th:field="*{director}" class="form-select">
+				<option th:value="${null}" selected >'Sin Asignar'</option>
+				<th:block th:each="objeto: ${listaDir}">
+					<option th:text="${objeto.nombre}" th:value="${objeto.cedula}"></option>
+				</th:block>
+			</select>
+			<label class="col-sm-4 col-form-label">Director:</label>
+		 </div>
+		 
+		 <div class="mb-4 form-floating">
+ 			<select th:field="*{evaluador}" class="form-select">
+				<option th:value="${null}" selected>'Sin Asignar'</option>
+ 				<th:block th:each="objeto: ${listaEva}">
+ 					<option th:text="${objeto.nombre}" th:value="${objeto.cedula}"></option>
+ 				</th:block>
+ 			</select>
+ 			<label class="col-sm-4 col-form-label">Evaluador:</label>
+ 		 </div>
+		 
+		 <div class="mb-4 form-floating">
+ 			<select th:field="*{estudiante}" class="form-select">
+				<option th:value="${null}" selected>'Sin Asignar'</option>
+ 				<th:block th:each="objeto: ${listaEst}">
+ 					<option th:text="${objeto.nombre}" th:value="${objeto.cedula}"></option>
+ 				</th:block>
+ 			</select>
+ 			<label class="col-sm-4 col-form-label">Estudiante:</label>
+ 		 </div>
+
+		  <button type="submit" class="btn btn-primary">Enviar</button>
+	</form>
+	
+
+	
+  </body>
+</html>
